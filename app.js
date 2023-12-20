@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
-const format = require('date-fns/format')
 
 app.get('/', async (request, response) => {
-  let theDate = format(new Date(), 'dd-MM-yyyy')
-  response.send(theDate)
+  let theDate = new Date()
+  response.send(
+    `${theDate.getDate()}-${theDate.getMonth() + 1}-${theDate.getFullYear()}`
+  )
 })
-app.listen(3000, ()=>{
-    console.log("It's Running")
+app.listen(3000, () => {
+  console.log("It's Running")
 })
 module.exports = app
